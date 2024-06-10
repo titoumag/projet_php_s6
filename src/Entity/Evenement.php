@@ -24,10 +24,10 @@ class Evenement
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column]
-    private ?int $nbmax = null;
+    private ?int $nbMax = null;
 
     #[ORM\Column]
-    private ?bool $isPublic = null;
+    private ?bool $public = null;
 
     public function getId(): ?int
     {
@@ -70,26 +70,26 @@ class Evenement
         return $this;
     }
 
-    public function getNbmax(): ?int
+    public function getNbMax(): ?int
     {
-        return $this->nbmax;
+        return $this->nbMax;
     }
 
-    public function setNbmax(int $nbmax): static
+    public function setNbMax(int $nbMax): static
     {
-        $this->nbmax = $nbmax;
+        $this->nbMax = $nbMax;
 
         return $this;
     }
 
     public function isPublic(): ?bool
     {
-        return $this->isPublic;
+        return $this->public;
     }
 
-    public function setPublic(bool $isPublic): static
+    public function setPublic(bool $public): static
     {
-        $this->isPublic = $isPublic;
+        $this->public = $public;
 
         return $this;
     }
