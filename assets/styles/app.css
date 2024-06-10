@@ -1,3 +1,33 @@
 body {
     background-color: skyblue;
+    max-width: 700px;
+    margin: auto;
+    padding: 10px;
+}
+
+table{
+    border-collapse: collapse;
+    width: max-content;
+}
+
+th,td{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+table a{
+    border: 1px solid black;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 3px;
+    margin: 10px;
+    text-decoration: none;
+    background-color: #F0F0F0;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+button{
+    padding: 5px;
 }

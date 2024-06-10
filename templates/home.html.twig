@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+    <h1 style="text-align: center">Bienvenue sur le site des événements</h1>
+
+    <a href="{{ path('app_evenement_new') }}" style="font-size: 1.5em">Creer nouveau evenement</a>
+
+
+<h2>Voici la liste des évenements récents :</h2>
+    <div style="display: flex">
+        {% for evenement in evenements %}
+            <div style="border: 1px solid black; text-align: center; width: 30%; margin: 5px">
+                <strong>{{ evenement.titre }}</strong><br>
+                <span>{{ evenement.description }}</span><br>
+                <span>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</span>
+            </div>
+        {% else %}
+            <div>
+                No records found
+            </div>
+        {% endfor %}
+    </div>
+
+    <h2>Inscription</h2>
+    <p>
+    Revenez plus tard...</p>
+
+    <h2>Edition de l'utilisateur</h2>
+    <a href="{{ path('app_login') }}" >Login</a>
+    <a href="{{ path('app_register') }}" >Creation compte</a>
+
+
+{% endblock %}
