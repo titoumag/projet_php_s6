@@ -1,5 +1,5 @@
 body {
-    background-color: skyblue;
+    background-color: #FAFAFA;
     max-width: 700px;
     margin: auto;
     padding: 10px;
@@ -30,4 +30,48 @@ a:hover{
 
 button{
     padding: 5px;
+}
+.form-login{
+    padding:10px;
+    width: 300px; 
+    margin: auto; 
+    border: 1px solid black; 
+    margin-top: 20vh
+}
+.form-login h1{
+    text-align: center
+}
+.long-block, .form-login input, form button{
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
+}
+form button{
+    background: blue;
+    color: white; 
+    margin-top: 10px; 
+    border: none; 
+    border-radius: 5px
+}
+
+.navbar{
+    height: 40px;
+    width: 100vw;
+    background: blue;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2em;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
+.navbar a:hover{
+    text-decoration: underline;
 }
