@@ -20,7 +20,7 @@ table a{
     padding: 5px;
     display: inline-block;
     border-radius: 3px;
-    margin: 10px;
+    margin: 5px;
     text-decoration: none;
     background-color: #F0F0F0;
 }
@@ -31,28 +31,35 @@ a:hover{
 button{
     padding: 5px;
 }
-.form-login{
+.form{
     padding:10px;
-    width: 300px; 
     margin: auto; 
+}
+.form-login{
     border: 1px solid black; 
+    width: 300px; 
     margin-top: 20vh
 }
 .form-login h1{
     text-align: center
 }
-.long-block, .form-login input, form button{
+.long-block, .form input, form button{
     width: 100%;
     width: -moz-available;          /* WebKit-based browsers will ignore this. */
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     width: fill-available;
 }
-form button{
+form button, .action a{
     background: blue;
     color: white; 
     margin-top: 10px; 
     border: none; 
     border-radius: 5px
+}
+.action a{
+    display: block;
+    padding: 3px;
+    text-align: center;
 }
 
 .navbar{

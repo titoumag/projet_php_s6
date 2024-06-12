@@ -12,11 +12,14 @@
 <h2>Voici la liste des évenements récents :</h2>
     <div style="display: flex">
         {% for evenement in evenements %}
-            <div style="border: 1px solid black; text-align: center; width: 30%; margin: 5px">
-                <strong>{{ evenement.titre }}</strong><br>
-                <span>{{ evenement.description }}</span><br>
-                <span>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</span>
-            </div>
+            {% if (app.user or evenement.public) %}
+                <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}" 
+                style="border: 1px solid black; text-align: center; width: 30%; margin: 5px; color: black; text-decoration: none">
+                    <strong>{{ evenement.titre }}</strong><br>
+                    <span>{{ evenement.description }}</span><br>
+                    <span>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</span>
+                </a>
+            {% endif %}
         {% else %}
             <div>
                 No records found
@@ -25,8 +28,7 @@
     </div>
 
     <h2>Inscription</h2>
-    <p>
-    Revenez plus tard...</p>
+    <a href="{{ path('app_participation_user') }}">List des inscription</a>
 
     <h2>Edition de l'utilisateur</h2>
 

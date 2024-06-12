@@ -3,7 +3,7 @@
     <a href="/evenement">Evenements</a>
     {% if app.user %}
         <a >Profile</a>
-        <a >Inscription</a>
+        <a href="{{ path('app_participation_user') }}">Inscription</a>
         <a href="{{ path('app_logout') }}" >Logout</a>
     {% else %}
         <a href="{{ path('app_login') }}" >Login</a>
