@@ -6,10 +6,11 @@
 {% block body %}
     <h1 style="text-align: center">Bienvenue sur le site des événements</h1>
 
-    <a href="{{ path('app_evenement_new') }}" style="font-size: 1.5em">Creer nouveau evenement</a>
+    {% if app.user %}
+       <a href="{{ path('app_evenement_new') }}" style="font-size: 1.5em">Creer nouveau evenement</a>
+    {% endif %}
 
-
-<h2>Voici la liste des évenements récents :</h2>
+    <h2>Voici la liste des évenements récents :</h2>
     <div style="display: flex">
         {% for evenement in evenements %}
             {% if (app.user or evenement.public) %}
@@ -28,8 +29,12 @@
     </div>
 
     <h2>Inscription</h2>
-    <a href="{{ path('app_participation_user') }}">List des inscription</a>
-
+    {% if app.user %}
+        <a href="{{ path('app_participation_user') }}">List des inscription</a>
+    {% else %}
+        Veuillez vous connecter pour voir vos inscriptions
+    {% endif %}
+    
     <h2>Edition de l'utilisateur</h2>
 
 

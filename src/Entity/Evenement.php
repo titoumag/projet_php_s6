@@ -37,6 +37,10 @@ class Evenement
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'evenement')]
     private Collection $users;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $proprietaire = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -130,6 +134,18 @@ class Evenement
         if ($this->users->removeElement($user)) {
             $user->removeEvenement($this);
         }
+
+        return $this;
+    }
+
+    public function getProprietaire(): ?User
+    {
+        return $this->proprietaire;
+    }
+
+    public function setProprietaire(?User $proprietaire): static
+    {
+        $this->proprietaire = $proprietaire;
 
         return $this;
     }
