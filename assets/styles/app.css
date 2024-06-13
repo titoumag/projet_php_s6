@@ -82,3 +82,5 @@ form button, .action a{
 .navbar a:hover{
     text-decoration: underline;
 }
+
+footer {position: absolute; bottom: 20px;}
