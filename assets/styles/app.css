@@ -3,6 +3,7 @@ body {
     max-width: 700px;
     margin: auto;
     padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 table{
@@ -25,7 +26,7 @@ table a{
     background-color: #F0F0F0;
 }
 a:hover{
-    text-decoration: underline;
+    text-decoration: underline !important
 }
 
 button{
@@ -49,12 +50,17 @@ button{
     width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
     width: fill-available;
 }
+input[type='checkbox']{
+    width: min-content;
+    display: auto;
+}
 form button, .action a{
     background: blue;
     color: white; 
     margin-top: 10px; 
     border: none; 
-    border-radius: 5px
+    border-radius: 5px;
+    text-decoration: none;
 }
 .action a{
     display: block;
