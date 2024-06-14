@@ -36,7 +36,7 @@ class EvenementVoter extends Voter
                 // if ($user->){
                     // return true;
                 // }else {
-                    return false;
+                    return $user->get;
                 // }
                 break;
 

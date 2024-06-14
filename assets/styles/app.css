@@ -3,15 +3,12 @@ body {
     max-width: 700px;
     margin: auto;
     padding: 10px;
-<<<<<<< HEAD
     /* min-height: 100vh; */
 }
 html{
-    background-image: url("photo_fond.jpeg");
+    /* background-image: url("photo_fond.jpeg"); */
 
-=======
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
->>>>>>> 908232a5e3ac80c95ed6118ba125cd9db54342ba
 }
 
 table{

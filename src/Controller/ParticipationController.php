@@ -39,10 +39,10 @@ class ParticipationController extends AbstractController
             ->text('Sending emails is fun again!')
             ->html('<p>See Twig integration for better HTML integration!</p>');
 
-        $mailer->send($email);
-        var_dump($mailer);
         $user->addEvenement($event);
         $entityManager->flush();
+        $toto = $mailer->send($email);
+        // dd($toto);
         
         return $this->redirectToRoute('app_participation_user', [], Response::HTTP_SEE_OTHER);  
     }
