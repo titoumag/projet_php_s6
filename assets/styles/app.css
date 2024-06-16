@@ -67,6 +67,9 @@ form button, .action a{
     padding: 3px;
     text-align: center;
 }
+button{
+    cursor: pointer;
+}
 
 .navbar{
     height: 40px;

@@ -44,10 +44,12 @@
     </table>
 
     <div class="action">
-    {% if app.user and app.user in evenement.users %}
-        <a href="{{ path('app_participation_delete',{'id': evenement.id}) }}" style="background: red"> Remove participation</a>
-    {% else %}
-        <a href="{{ path('app_participation_add',{'id': evenement.id}) }}" style="background: green"> Add participation</a>
+    {% if app.user %}
+        {% if app.user in evenement.users %}
+            <a href="{{ path('app_participation_delete',{'id': evenement.id}) }}" style="background: red"> Remove participation</a>
+        {% else %}
+            <a href="{{ path('app_participation_add',{'id': evenement.id}) }}" style="background: green"> Add participation</a>
+        {% endif %}
     {% endif %}
         <a href="{{ path('app_evenement_index') }}">Return to list</a>
         
