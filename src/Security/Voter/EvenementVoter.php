@@ -33,11 +33,11 @@ class EvenementVoter extends Voter
             case self::EDIT:
                 // logic to determine if the user can EDIT
                 // return true or false
-                if ($user){
-                    return true;
-                }else {
-                    return false;
-                }
+                // if ($user->){
+                    // return true;
+                // }else {
+                    return $user->get;
+                // }
                 break;
 
             case self::VIEW:
