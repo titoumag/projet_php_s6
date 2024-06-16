@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profile User{% endblock %}
+{% block title %}Profil Utilisateur{% endblock %}
 
 {% block body %}
     <div class="form">
         {{ form_start(form) }}
             {{ form_widget(form) }}
-            <button class="btn" style="background: green">{{ button_label|default('Save') }}</button>
+            <button class="btn" style="background: green">{{ button_label|default('Valider') }}</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

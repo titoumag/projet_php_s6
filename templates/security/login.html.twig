@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
     <div class="form form-login">
         <form method="post" style="">
             {% if app.user %}
                 <div class="mb-3">
-                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    Vous êtes déja connecté comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
             <label for="username">Nom</label><br>
             <input type="text" value="{{ last_username }}" name="_username" id="username"
                 autocomplete="username" required autofocus><br>
-            <label for="password">Password</label><br>
+            <label for="password">Mot de passe</label><br>
             <input type="password" name="_password" id="password"
                 autocomplete="current-password" required>
 
@@ -39,12 +39,12 @@
             #}
 
             <button type="submit">
-                Sign in
+                Valider
             </button>
         </form>
 
         <div style="padding: 10px">
-            Or create you account:
+            Ou creer votre compte :
             <a href="{{ path('app_register') }}" >Creation compte</a>
         </div>
     </div>

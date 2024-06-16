@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ParticipationController!{% endblock %}
+{% block title %}Participation{% endblock %}
 
 {% block body %}
-<h1>Liste des participation</h1>    
+<h1>Liste des participations</h1>    
     <table class="table">
         <thead>
             <tr>
@@ -27,14 +27,14 @@
                 <td>{{ evenement.nbMax }}</td>
                 <td>{{ evenement.public ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}" style="background: blue; color: white">show</a>
-                    <a href="{{ path('app_participation_delete', {'id': evenement.id}) }}" style="background: red; color: white">Delete inscription</a>
+                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}" style="background: blue; color: white">Detail</a>
+                    <a href="{{ path('app_participation_delete', {'id': evenement.id}) }}" style="background: red; color: white">Supprimer inscription</a>
                 </td>
             </tr>
             {% endif %}
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Pas de participation</td>
             </tr>
         {% endfor %}
         </tbody>
