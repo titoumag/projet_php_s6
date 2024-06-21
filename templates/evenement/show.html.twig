@@ -4,21 +4,17 @@
 
 {% block body %}
 <div style="width: 300px">
-    <h1>Evenement</h1>
+    <h1>{{ evenement.titre }}</h1>
+
+    <div style="min-height: 50px; color: darkslategrey">
+        {{ evenement.description }}
+    </div>
 
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ evenement.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ evenement.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ evenement.description }}</td>
             </tr>
             <tr>
                 <th>Date</th>
@@ -37,7 +33,7 @@
                 <th>{{ evenement.proprietaire.nom}}</th>
             </tr>
             <tr>
-                <th>Proprietaire</th>
+                <th>Nb participation</th>
                 <th>{{ evenement.users|length}}</th>
             </tr>
         </tbody>
