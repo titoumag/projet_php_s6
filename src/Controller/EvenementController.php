@@ -6,10 +6,11 @@ use App\Entity\Evenement;
 use App\Form\Evenement1Type;
 use App\Repository\EvenementRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/evenement')]
 class EvenementController extends AbstractController
@@ -52,6 +53,7 @@ class EvenementController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_evenement_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('edit', 'evenement','Forbidden',403)]
     public function edit(Request $request, Evenement $evenement, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(Evenement1Type::class, $evenement);
@@ -70,6 +72,7 @@ class EvenementController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_evenement_delete', methods: ['POST'])]
+    #[IsGranted('edit', 'evenement','Forbidden',403)]
     public function delete(Request $request, Evenement $evenement, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$evenement->getId(), $request->getPayload()->get('_token'))) {
