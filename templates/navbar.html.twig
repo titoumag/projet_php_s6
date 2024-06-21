@@ -2,9 +2,9 @@
     <a href="/">Accueil</a>
     <a href="/evenement">Evenements</a>
     {% if app.user %}
-        <a href="{{ path('app_profile') }}">Profile</a>
         <a href="{{ path('app_participation_user') }}">Inscription</a>
-        <a href="{{ path('app_logout') }}" >Deconnexion</a>
+        <a href="{{ path('app_profile') }}">Profil</a>
+        {# <a href="{{ path('app_logout') }}" >Deconnexion</a> #}
     {% else %}
         <a href="{{ path('app_login') }}" >Connexion</a>
     {% endif %}

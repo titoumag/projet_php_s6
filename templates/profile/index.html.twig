@@ -3,7 +3,11 @@
 {% block title %}Profil Utilisateur{% endblock %}
 
 {% block body %}
-    <div class="form">
+    <div class="action" style="width: 300px; margin: auto; font-size: 1.5em">
+        <a href="{{ path('app_logout') }}" class="long-block" style="background-color: blue; color: white">Deconnexion</a>
+    </div/>
+    <h2>Editer profil</h2>
+    <div class="form" style="border: 1px solid black">
         {{ form_start(form) }}
             {{ form_widget(form) }}
             <button class="btn" style="background: green">{{ button_label|default('Valider') }}</button>
