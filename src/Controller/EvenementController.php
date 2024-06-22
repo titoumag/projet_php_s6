@@ -59,7 +59,7 @@ class EvenementController extends AbstractController
             'form' => $form,
         ]);
     }
-    #[IsGranted("VIEW")]
+    #[IsGranted("view","evenement")]
     #[Route('/{id}', name: 'app_evenement_show', methods: ['GET'])]
     public function show(Evenement $evenement): Response
     {
@@ -68,7 +68,6 @@ class EvenementController extends AbstractController
         ]);
     }
     
-    #[IsGranted("EDIT")]
     #[Route('/{id}/edit', name: 'app_evenement_edit', methods: ['GET', 'POST'])]
     #[IsGranted('edit', 'evenement','Forbidden',403)]
     public function edit(Request $request, Evenement $evenement, EntityManagerInterface $entityManager): Response
@@ -88,7 +87,6 @@ class EvenementController extends AbstractController
         ]);
     }
 
-    #[IsGranted("VIEW")]
     #[Route('/{id}', name: 'app_evenement_delete', methods: ['POST'])]
     #[IsGranted('edit', 'evenement','Forbidden',403)]
     public function delete(Request $request, Evenement $evenement, EntityManagerInterface $entityManager): Response
