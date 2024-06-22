@@ -30,7 +30,7 @@ class ParticipationController extends AbstractController
     // l'envoie du mail par le service ne fonctionne pas. POUR QUE L'APPLICATION FONCTIONNE TOUS CE QUI EST LI2ES AU SERVICE A ETE COMMENTER
     // public function add(EntityManagerInterface $entityManager,Evenement $event, MailerService $mailer , MailerService $emailSender): Response
     public function add(EntityManagerInterface $entityManager,Evenement $event , MailerInterface $mailer): Response
-    public function add(EntityManagerInterface $entityManager,Evenement $event): Response
+    // public function add(EntityManagerInterface $entityManager,Evenement $event): Response
     {
         $user=$this->getUser();
         if ($user==null)
