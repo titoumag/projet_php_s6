@@ -6,8 +6,6 @@ body {
     /* min-height: 100vh; */
 }
 html{
-    /* background-image: url("photo_fond.jpeg"); */
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -72,6 +70,9 @@ form button, .action a{
     padding: 3px;
     text-align: center;
 }
+button{
+    cursor: pointer;
+}
 
 .navbar{
     height: 40px;
@@ -86,6 +87,11 @@ form button, .action a{
     align-items: center;
     font-size: 1.2em;
 }
+@media screen and (max-width: 500px) {
+    .navbar {
+        font-size: 1em;
+    }
+}
 .navbar a{
     color: white;
     text-decoration: none;
@@ -94,4 +100,12 @@ form button, .action a{
     text-decoration: underline;
 }
 
-footer {position: absolute; bottom: 20px;}
+footer{
+    position: absolute;
+    bottom: 0;
+    padding: 5px 0;
+    color: white;
+    width: 100vw;
+    background: blue;
+    left: 0   
+}

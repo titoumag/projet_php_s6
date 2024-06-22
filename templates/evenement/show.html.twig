@@ -4,7 +4,11 @@
 
 {% block body %}
 <div style="width: 300px">
-    <h1>Evenement</h1>
+    <h1>{{ evenement.titre }}</h1>
+
+    <div style="min-height: 50px; color: darkslategrey">
+        {{ evenement.description }}
+    </div>
 
     <table class="table">
         <tbody>
@@ -13,16 +17,8 @@
                 <td>{{ evenement.id }}</td>
             </tr>
             <tr>
-                <th>Titre</th>
-                <td>{{ evenement.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ evenement.description }}</td>
-            </tr>
-            <tr>
                 <th>Date</th>
-                <td>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ evenement.date ? evenement.date|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>NbMax</th>
@@ -37,19 +33,21 @@
                 <th>{{ evenement.proprietaire.nom}}</th>
             </tr>
             <tr>
-                <th>Proprietaire</th>
+                <th>Nb participation</th>
                 <th>{{ evenement.users|length}}</th>
             </tr>
         </tbody>
     </table>
 
     <div class="action">
-    {% if app.user and app.user in evenement.users %}
-        <a href="{{ path('app_participation_delete',{'id': evenement.id}) }}" style="background: red"> Remove participation</a>
-    {% else %}
-        <a href="{{ path('app_participation_add',{'id': evenement.id}) }}" style="background: green"> Add participation</a>
+    {% if app.user %}
+        {% if app.user in evenement.users %}
+            <a href="{{ path('app_participation_delete',{'id': evenement.id}) }}" style="background: red"> Supprimer participation</a>
+        {% else %}
+            <a href="{{ path('app_participation_add',{'id': evenement.id}) }}" style="background: green"> Ajouter participation</a>
+        {% endif %}
     {% endif %}
-        <a href="{{ path('app_evenement_index') }}">Return to list</a>
+        <a href="{{ path('app_evenement_index') }}">Retour à la liste</a>
         
     {% if app.user and app.user.id==evenement.proprietaire.id %}
         <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}" style="background: orange">Edition</a>

@@ -6,17 +6,16 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class EvenementVoter extends Voter
+class ProfileVoter extends Voter
 {
     public const EDIT = 'edit';
-    public const VIEW = 'view';
+    public const VIEW = 'POST_VIEW';
 
     protected function supports(string $attribute, mixed $subject): bool
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
-        return in_array($attribute, [self::EDIT, self::VIEW])
-            && $subject instanceof \App\Entity\Evenement;
+        return in_array($attribute, [self::EDIT, self::VIEW]);
     }
 
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
@@ -33,16 +32,12 @@ class EvenementVoter extends Voter
             case self::EDIT:
                 // logic to determine if the user can EDIT
                 // return true or false
-                // if ($user->){
-                    // return true;
-                // }else {
-                    return $user==$subject->getProprietaire();
-                // }
+                return $user!=null;
                 break;
 
             case self::VIEW:
                 // logic to determine if the user can VIEW
-                return true ;
+                // return true or false
                 break;
         }
 

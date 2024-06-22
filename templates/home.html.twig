@@ -18,12 +18,12 @@
                 style="border: 1px solid black; text-align: center; width: 30%; margin: 5px; color: black; text-decoration: none">
                     <strong>{{ evenement.titre }}</strong><br>
                     <span>{{ evenement.description }}</span><br>
-                    <span>{{ evenement.date ? evenement.date|date('Y-m-d H:i:s') : '' }}</span>
+                    <span>{{ evenement.date ? evenement.date|date('d-m-Y H:i:s') : '' }}</span>
                 </a>
             {% endif %}
         {% else %}
             <div>
-                No records found
+                Pas d'evenements
             </div>
         {% endfor %}
     </div>

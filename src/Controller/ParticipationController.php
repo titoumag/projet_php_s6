@@ -5,7 +5,7 @@ namespace App\Controller;
 use Exception;
 
 use App\Entity\Evenement;
-use Symfony\Component\Mime\Email;
+// use Symfony\Component\Mime\Email;
 use App\Repository\UserRepository;
 // use App\Service\MailerService;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,6 +30,7 @@ class ParticipationController extends AbstractController
     // l'envoie du mail par le service ne fonctionne pas. POUR QUE L'APPLICATION FONCTIONNE TOUS CE QUI EST LI2ES AU SERVICE A ETE COMMENTER
     // public function add(EntityManagerInterface $entityManager,Evenement $event, MailerService $mailer , MailerService $emailSender): Response
     public function add(EntityManagerInterface $entityManager,Evenement $event , MailerInterface $mailer): Response
+    public function add(EntityManagerInterface $entityManager,Evenement $event): Response
     {
         $user=$this->getUser();
         if ($user==null)
@@ -53,6 +54,18 @@ class ParticipationController extends AbstractController
             $user->addEvenement($event);
             // $mailer->sendByEmail("bonjour" , "bot.love.test@gmail.com" );
             // $emailSender->sendByEmail("bonjour" , "bot.love.test@gmail.com");
+        // $email = (new Email())
+        //     ->from('bot.love.test@gmail.com')
+        //     // ->to($user->getEmail())
+        //     ->to('bot.love.test@gmail.com')
+        //     // ->priority(Email::PRIORITY_HIGH)
+        //     ->subject('Time for Symfony Mailer!')
+        //     ->text('Sending emails is fun again!')
+        //     ->html('<p>See Twig integration for better HTML integration!</p>');
+
+        $user->addEvenement($event);
+        $entityManager->flush();
+        // $toto = $mailer->send($email);
         // dd($toto);
         
         return $this->redirectToRoute('app_participation_user', [], Response::HTTP_SEE_OTHER);  

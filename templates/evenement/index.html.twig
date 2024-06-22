@@ -28,13 +28,13 @@
                 <td>{{ evenement.nbMax }}</td>
                 <td>{{ evenement.public ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}" style="background: blue; color: white">show</a>
+                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}" style="background: blue; color: white">Detail</a>
                 </td>
             </tr>
             {% endif %}
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Pas d'enregistrement</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -42,7 +42,7 @@
 
     {% if app.user %}
         <div class="action" style="width: 200px">
-            <a href="{{ path('app_evenement_new') }}" class="long-block" style="background: orange">Create new</a>
+            <a href="{{ path('app_evenement_new') }}" class="long-block" style="background: orange">Creer nouveau enregistrement</a>
         </div>
     {% endif %}
 {% endblock %}
