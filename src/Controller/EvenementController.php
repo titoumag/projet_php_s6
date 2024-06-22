@@ -17,9 +17,25 @@ class EvenementController extends AbstractController
     #[Route('/', name: 'app_evenement_index', methods: ['GET'])]
     public function index(EvenementRepository $evenementRepository): Response
     {
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+            $currentPage = (int) strip_tags($_GET['page']);
+            // dd ($currentPage);
+
+        }else{
+            $currentPage = 1;
+        }
+        if(isset($_GET['nb_events']) && !empty($_GET['nb_events'])){
+            $nb_events = (int) strip_tags($_GET['nb_events']);
+            // dd ($nb_events);
+        }else{
+            $nb_events = 40;
+        }
         return $this->render('evenement/index.html.twig', [
-            'evenements' => $evenementRepository->findAll(),
+            'evenements' => $evenementRepository->findByWithPagination($nb_events*($currentPage-1),$nb_events*$currentPage),
         ]);
+        // return $this->render('evenement/index.html.twig', [
+            // 'evenements' => $evenementRepository->findAll(),
+        // ]);
     }
 
     #[Route('/new', name: 'app_evenement_new', methods: ['GET', 'POST'])]
@@ -42,7 +58,7 @@ class EvenementController extends AbstractController
             'form' => $form,
         ]);
     }
-
+    #[IsGranted("VIEW")]
     #[Route('/{id}', name: 'app_evenement_show', methods: ['GET'])]
     public function show(Evenement $evenement): Response
     {
@@ -50,7 +66,8 @@ class EvenementController extends AbstractController
             'evenement' => $evenement,
         ]);
     }
-
+    
+    #[IsGranted("EDIT")]
     #[Route('/{id}/edit', name: 'app_evenement_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Evenement $evenement, EntityManagerInterface $entityManager): Response
     {
@@ -69,6 +86,7 @@ class EvenementController extends AbstractController
         ]);
     }
 
+    #[IsGranted("VIEW")]
     #[Route('/{id}', name: 'app_evenement_delete', methods: ['POST'])]
     public function delete(Request $request, Evenement $evenement, EntityManagerInterface $entityManager): Response
     {

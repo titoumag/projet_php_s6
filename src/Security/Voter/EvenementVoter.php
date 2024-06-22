@@ -32,13 +32,13 @@ class EvenementVoter extends Voter
         switch ($attribute) {
             case self::EDIT:
                 // logic to determine if the user can EDIT
-                // return true or false
-                // if ($user->){
-                    // return true;
-                // }else {
-                    return $user->get;
-                // }
-                break;
+                // return true or false 
+
+                if ( $subject->getProprietaire()== $user && $user){
+                    return true ;
+                }else {
+                    return false ;
+                }
 
             case self::VIEW:
                 // logic to determine if the user can VIEW
